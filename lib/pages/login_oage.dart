@@ -12,6 +12,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _obscureText = true;
 
   void _login() {
     String username = _usernameController.text.trim();
@@ -51,9 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: Image.asset("assets/images/logo1.png"),
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+                const SizedBox(height: 5),
                 const Center(
                   child: Text(
                     "Belanjain",
@@ -65,9 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 11,
-                ),
+                const SizedBox(height: 11),
                 const Center(
                   child: Text(
                     "Mudah, Belanja Online",
@@ -78,9 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+                const SizedBox(height: 5),
                 const Center(
                   child: SizedBox(
                     width: 241,
@@ -95,9 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 33,
-                ),
+                const SizedBox(height: 33),
                 const Text(
                   "Username",
                   style: TextStyle(
@@ -106,9 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+                const SizedBox(height: 5),
                 SizedBox(
                   width: 350,
                   child: TextFormField(
@@ -142,9 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
                 ),
-                const SizedBox(
-                  height: 15,
-                ),
+                const SizedBox(height: 15),
                 const Text(
                   "Password",
                   style: TextStyle(
@@ -153,13 +142,11 @@ class _LoginPageState extends State<LoginPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+                const SizedBox(height: 5),
                 SizedBox(
                   width: 350,
                   child: TextFormField(
-                    obscureText: true,
+                    obscureText: _obscureText,
                     controller: _passwordController,
                     decoration: InputDecoration(
                       hintText: 'Enter Your Password',
@@ -181,6 +168,19 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       filled: true,
                       fillColor: Colors.white,
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
+                      ),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -190,9 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
                 ),
-                const SizedBox(
-                  height: 25,
-                ),
+                const SizedBox(height: 25),
                 SizedBox(
                   width: double.infinity,
                   height: 50,

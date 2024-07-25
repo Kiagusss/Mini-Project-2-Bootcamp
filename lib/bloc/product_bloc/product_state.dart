@@ -12,11 +12,12 @@ class ProductLoadingState extends ProductState {}
 
 class ProductLoadedState extends ProductState {
   final List<ProductModel> products;
+  final List<ProductModel> filteredProducts;
 
-  ProductLoadedState({required this.products});
+  ProductLoadedState({required this.products, required this.filteredProducts});
 
   @override
-  List<Object> get props => [products];
+  List<Object> get props => [products, filteredProducts];
 }
 
 class ProductErrorState extends ProductState {}

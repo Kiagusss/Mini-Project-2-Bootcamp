@@ -14,7 +14,7 @@ class CustomDrawer extends StatelessWidget {
         children: [
           ListTile(
             title: Text(
-              'STORE',
+              'Belanjain  ',
               style: title.copyWith(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
